@@ -1,3 +1,8 @@
 <h1>Todo List</h1>
 
-<app-todo-item *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
+<app-todo-item
+  *ngFor="let todo of todos"
+  [todo]="todo"
+  (deleteTodo)="deleteTodo($event)"
+>
+</app-todo-item>
