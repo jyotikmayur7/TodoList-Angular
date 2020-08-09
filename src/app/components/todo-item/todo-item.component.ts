@@ -28,6 +28,11 @@ export class TodoItemComponent implements OnInit {
     // Toggle in UI
     todo.completed = !todo.completed;
 
+    // Checkbox stuff
+    // if (!todo.completed) {
+    //   let elem = <HTMLInputElement>document.getElementById('check');
+    // }
+
     // Toggle on Server
     this.todoService.toggleCompleted(todo).subscribe((todo) => {
       console.log(todo);
