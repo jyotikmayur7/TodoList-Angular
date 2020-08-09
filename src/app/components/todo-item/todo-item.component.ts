@@ -11,6 +11,8 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
+  checkValue: boolean;
+
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {}
@@ -29,13 +31,13 @@ export class TodoItemComponent implements OnInit {
     todo.completed = !todo.completed;
 
     // Checkbox stuff
-    // if (!todo.completed) {
-    //   let elem = <HTMLInputElement>document.getElementById('check');
-    // }
+    if (!todo.completed) {
+      this.checkValue = false;
+    }
 
     // Toggle on Server
     this.todoService.toggleCompleted(todo).subscribe((todo) => {
-      console.log(todo);
+      console.log(this.checkValue);
     });
   }
 
